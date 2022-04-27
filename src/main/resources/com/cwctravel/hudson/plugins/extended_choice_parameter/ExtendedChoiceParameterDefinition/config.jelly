@@ -3,7 +3,8 @@
  See the file license.txt for copying permission. 
 -->
 <?jelly escape-by-default='true'?>
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" 
+		xmlns:t="/lib/hudson" xmlns:f="/lib/form">
   <f:entry title="Name" field="name">
     <f:textbox />
   </f:entry>
@@ -156,7 +157,11 @@
 	          </f:entry>
 	          <f:advanced>
 	              <f:entry field="defaultBindings" title="${%Variable bindings}">
-	                  <f:textarea value="${instance.defaultBindings}" />
+	              	 <div class="workflow-editor-wrapper" style="display: none; position: relative">
+		                <f:textarea value="${instance.defaultBindings}" />
+		                <div class="pane-frame editor" style="height: 250px;" samplesUrl="${rootURL}/workflow-cps-samples/"/>
+            		</div>
+            		<st:adjunct includes="org.jenkinsci.plugins.workflow.cps.workflow-editor"/>
 	              </f:entry>
                   <f:entry field="defaultGroovyClasspath" title="${%Default Groovy Classpath}">
                       <f:textarea value="${instance.defaultGroovyClasspath}" />
