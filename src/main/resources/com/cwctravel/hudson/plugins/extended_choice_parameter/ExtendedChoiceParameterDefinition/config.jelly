@@ -108,7 +108,9 @@
           
           <f:radioBlock name="propertySource" title="Groovy Script" value="2" checked="${parameterType eq 'basic' and not empty instance.groovyScript}">
               <f:entry field="groovyScript">
-                <f:textarea value="${instance.groovyScript}"/>
+              	
+                	<f:textarea value="${instance.groovyScript}"/>
+                	
               </f:entry>
               <f:advanced>
                   <f:entry field="bindings" title="${%Variable bindings}">
@@ -152,16 +154,12 @@
 	      </f:radioBlock>   
 	      
 	      <f:radioBlock name="defaultPropertySource" title="Default Groovy Script" value="2" checked="${parameterType eq 'basic' and not empty instance.defaultGroovyScript}">
-	          <f:entry field="defaultGroovyScript">
+	           <f:entry field="defaultGroovyScript">
 	            <f:textarea value="${instance.defaultGroovyScript}"/>
 	          </f:entry>
 	          <f:advanced>
 	              <f:entry field="defaultBindings" title="${%Variable bindings}">
-	              	 <div class="workflow-editor-wrapper" style="display: none; position: relative">
 		                <f:textarea value="${instance.defaultBindings}" />
-		                <div class="pane-frame editor" style="height: 250px;" samplesUrl="${rootURL}/workflow-cps-samples/"/>
-            		</div>
-            		<st:adjunct includes="org.jenkinsci.plugins.workflow.cps.workflow-editor"/>
 	              </f:entry>
                   <f:entry field="defaultGroovyClasspath" title="${%Default Groovy Classpath}">
                       <f:textarea value="${instance.defaultGroovyClasspath}" />
@@ -248,7 +246,10 @@
   <f:radioBlock name="parameterGroup" title="JSON Parameter Type" value="2" checked="${parameterType eq 'json'}">           
         <f:radioBlock name="jsonParameterConfigSource" title="JSON Parameter Config Groovy Script" value="0" checked="${parameterType eq 'json' and not empty instance.groovyScript}">
              <f:entry field="groovyScript">
+             	<div class="workflow-editor-wrapper" style="display: none; position: relative">
                   <f:textarea value="${instance.groovyScript}"/>
+                  <div class="pane-frame editor" style="height: 250px;" samplesUrl="${rootURL}/workflow-cps-samples/"/>
+            	</div>
              </f:entry>
              <f:advanced>
                   <f:entry field="bindings" title="${%Variable bindings}">
@@ -285,5 +286,5 @@
          <f:entry field="saveJSONParameterToFile" title="${%Save Parameter to File}">
             <f:checkbox value="${instance.saveJSONParameterToFile}"/>
         </f:entry>         
-   </f:radioBlock>	  
+   </f:radioBlock>
 </j:jelly>
